@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 cp -a /var/www/html/efsdata /var/www/html/testwikidata
 

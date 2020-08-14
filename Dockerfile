@@ -4,18 +4,14 @@ RUN apk add --no-cache openssh-client bash curl rsync ca-certificates  && rm -rf
 
 COPY ./pukiwiki/ /var/www/html/
 
-RUN cp -a /var/www/html/efsdata /var/www/html/testwikidata
+RUN cd /var/www/html
 
-RUN cd /var/www/html/testwikidata
-
-RUN mkdir -p -m 777 wiki
-RUN mkdir -p -m 777 diff
-RUN mkdir -p -m 777 backup
-RUN mkdir -p -m 777 cache
-RUN mkdir -p -m 777 attach
-RUN mkdir -p -m 777 counter
-RUN mkdir -p -m 777 trackback
-
-RUN (crontab -l; echo "*/15 * * * * cp /var/www/html/testwikidata /var/www/html/efsdata > /dev/null 2>&1") | crontab -
+RUN mkdir -p -m 777 testwikidata/wiki
+RUN mkdir -p -m 777 testwikidata/diff
+RUN mkdir -p -m 777 testwikidata/backup
+RUN mkdir -p -m 777 testwikidata/cache
+RUN mkdir -p -m 777 testwikidata/attach
+RUN mkdir -p -m 777 testwikidata/counter
+RUN mkdir -p -m 777 testwikidata/trackback
 
 EXPOSE 80

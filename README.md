@@ -1,3 +1,3 @@
 # legacy wiki test
 
- test1
+ test

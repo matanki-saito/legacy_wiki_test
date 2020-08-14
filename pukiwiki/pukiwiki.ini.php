@@ -89,6 +89,21 @@ define('COUNTER_DIR',   DATA_HOME . 'testwikidata/counter/'  ); // Counter plugi
 define('TRACKBACK_DIR', DATA_HOME . 'testwikidata/trackback/'); // TrackBack logs
 define('PLUGIN_DIR',    DATA_HOME . 'plugin/'   ); // Plugin directory
 
+function makeDirIfNotExist($dir){
+	if(!file_exists($dir)){
+		mkdir($dir,0777,true);
+		chmod($dir, 0777);
+	}
+}
+
+makeDirIfNotExist(DATA_DIR);
+makeDirIfNotExist(DIFF_DIR);
+makeDirIfNotExist(BACKUP_DIR);
+makeDirIfNotExist(CACHE_DIR);
+makeDirIfNotExist(UPLOAD_DIR);
+makeDirIfNotExist(COUNTER_DIR);
+makeDirIfNotExist(TRACKBACK_DIR);
+
 /////////////////////////////////////////////////
 // Directory settings II (ended with '/')
 
